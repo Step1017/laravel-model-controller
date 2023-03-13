@@ -1,9 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Movie;
+/*tolgo l'importazione di Movie da qui:
+    //use App\Models\Movie; */
 
-
+//Controllers
+//importo PageController qui in modo da poterlo richiamare:
+use App\Http\Controllers\Guest\PageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,12 +18,7 @@ use App\Models\Movie;
 |
 */
 
-Route::get('/', function () {
-    //faccio un test per vedere se funziona il model e utilizzo il metodo statico per recuperare tutti i movies dal db
-    $movies = Movie::all();
-    //e per visualizzarli in pagina utilizzo:
-    dd($movies);
-    return view('welcome');
-});
+// e richiamo qui la funzione creata in PageController:
+Route::get('/', [PageController::class, 'index']);
 
 
