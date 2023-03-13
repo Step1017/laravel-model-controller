@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Movie;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    //faccio un test per vedere se funziona il model e utilizzo il metodo statico per recuperare tutti i movies dal db
+    $movies = Movie::all();
+    //e per visualizzarli in pagina utilizzo:
+    dd($movies);
     return view('welcome');
 });
+
+
